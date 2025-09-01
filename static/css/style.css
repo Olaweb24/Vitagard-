@@ -246,6 +246,18 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
+.footer-custom,
+.footer-custom p,
+.footer-custom a,
+.footer-custom small,
+.footer-custom .text-muted {
+    color: #ffffff !important;   /* force pure white */
+}
+
+.footer-custom a:hover {
+    color: var(--health-primary) !important; /* nice accent color */
+}
+
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
@@ -775,6 +787,19 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
     background: #868e96;
 }
+
+/* Dark mode fix for tips box */
+[data-theme="dark"] .tips-container,
+[data-theme="dark"] #health-tips {
+    color: #ffffff;  /* ensure text is visible */
+}
+
+[data-theme="dark"] .tips-container p,
+[data-theme="dark"] .tips-container small,
+[data-theme="dark"] .tips-container span {
+    color: #e0e0e0;  /* softer white for secondary text */
+}
+
 
 /* Dark mode transition */
 * {
