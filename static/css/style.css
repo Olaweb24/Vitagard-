@@ -775,3 +775,194 @@ h1, h2, h3, h4, h5, h6 {
 * {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
+
+/* Mobile App Styles */
+@media (max-width: 768px) {
+    /* Larger touch targets */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+    
+    .nav-link {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
+    /* Better form inputs for mobile */
+    .form-control,
+    .form-select {
+        font-size: 16px;
+        padding: 12px;
+        min-height: 44px;
+    }
+    
+    /* Mobile navigation */
+    .navbar-toggler {
+        min-height: 44px;
+        min-width: 44px;
+        border: none;
+        padding: 8px;
+    }
+    
+    /* Health cards responsive */
+    .health-card {
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    
+    /* Chart containers */
+    .chart-container {
+        position: relative;
+        height: 300px;
+        width: 100%;
+    }
+    
+    /* Dashboard adjustments */
+    .dashboard-stats .col-md-3 {
+        margin-bottom: 1rem;
+    }
+    
+    /* Footer mobile */
+    footer .row > div {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    /* Hero section mobile */
+    .hero-section {
+        padding: 3rem 0;
+        text-align: center;
+    }
+    
+    .hero-section .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    /* Modal mobile */
+    .modal-dialog {
+        margin: 1rem;
+    }
+    
+    /* Table responsive */
+    .table-responsive {
+        border: none;
+    }
+}
+
+/* PWA specific styles */
+.install-prompt {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: var(--health-primary);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-heavy);
+    display: none;
+    z-index: 1050;
+}
+
+.install-prompt .btn {
+    background: white;
+    color: var(--health-primary);
+    border: none;
+    margin-top: 10px;
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .health-card:hover {
+        transform: none;
+        box-shadow: var(--shadow-light);
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    /* Larger tap targets */
+    .dropdown-toggle::after {
+        margin-left: 0.5em;
+    }
+    
+    .dropdown-menu {
+        font-size: 16px;
+    }
+    
+    .dropdown-item {
+        padding: 12px 20px;
+    }
+}
+
+/* Offline indicator */
+.offline-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--danger-color);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+    z-index: 1060;
+    display: none;
+}
+
+.offline-indicator.show {
+    display: block;
+}
+
+/* App-like appearance */
+@media (display-mode: standalone) {
+    /* Remove browser UI elements when installed as app */
+    body {
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+    }
+    
+    /* Add top padding for status bar */
+    .navbar {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    /* Bottom safe area for devices with home indicators */
+    footer {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Loading spinner for app */
+.app-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.app-loading .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--health-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

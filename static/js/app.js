@@ -15,6 +15,7 @@ const App = {
         this.checkAuthStatus();
         this.setupAjaxDefaults();
         this.initTheme();
+        this.initMobileFeatures();
     },
     
     // Setup global event listeners
@@ -455,6 +456,98 @@ const App = {
             `Switched to ${newTheme} mode`, 
             'success'
         );
+    },
+    
+    // Mobile app specific features
+    initMobileFeatures() {
+        // Add offline indicator
+        const offlineIndicator = document.createElement('div');
+        offlineIndicator.className = 'offline-indicator';
+        offlineIndicator.innerHTML = '<i class="fas fa-wifi me-2"></i>You are offline. Some features may be limited.';
+        document.body.appendChild(offlineIndicator);
+        
+        // Monitor online/offline status
+        window.addEventListener('online', () => {
+            offlineIndicator.classList.remove('show');
+            this.showNotification('Connection restored!', 'success');
+        });
+        
+        window.addEventListener('offline', () => {
+            offlineIndicator.classList.add('show');
+            this.showNotification('You are now offline', 'warning');
+        });
+        
+        // Add pull-to-refresh functionality
+        this.initPullToRefresh();
+        
+        // Prevent zoom on form inputs (iOS)
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                const viewport = document.querySelector('meta[name=viewport]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+                }
+            });
+            
+            input.addEventListener('blur', () => {
+                const viewport = document.querySelector('meta[name=viewport]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
+                }
+            });
+        });
+    },
+    
+    initPullToRefresh() {
+        let startY = 0;
+        let currentY = 0;
+        let pullDistance = 0;
+        let isPulling = false;
+        
+        document.addEventListener('touchstart', (e) => {
+            if (window.scrollY === 0) {
+                startY = e.touches[0].clientY;
+                isPulling = true;
+            }
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            if (isPulling && window.scrollY === 0) {
+                currentY = e.touches[0].clientY;
+                pullDistance = currentY - startY;
+                
+                if (pullDistance > 0) {
+                    e.preventDefault();
+                    
+                    // Visual feedback for pull
+                    if (pullDistance > 100) {
+                        document.body.style.transform = `translateY(${Math.min(pullDistance - 100, 50)}px)`;
+                        document.body.style.opacity = '0.8';
+                    }
+                }
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            if (isPulling && pullDistance > 150) {
+                // Trigger refresh
+                this.refreshPage();
+            }
+            
+            // Reset visual state
+            document.body.style.transform = '';
+            document.body.style.opacity = '';
+            isPulling = false;
+            pullDistance = 0;
+        });
+    },
+    
+    refreshPage() {
+        this.showNotification('Refreshing...', 'info');
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
     }
 };
 
