@@ -791,13 +791,98 @@ h1, h2, h3, h4, h5, h6 {
 /* Dark mode fix for tips box */
 [data-theme="dark"] .tips-container,
 [data-theme="dark"] #health-tips {
-    color: #ffffff;  /* ensure text is visible */
+    color: #2d2d2d;  /* ensure text is visible */
 }
 
 [data-theme="dark"] .tips-container p,
 [data-theme="dark"] .tips-container small,
 [data-theme="dark"] .tips-container span {
-    color: #e0e0e0;  /* softer white for secondary text */
+    color: #0b5ed7;  /* softer white for secondary text */
+}
+
+/* Feature section text in dark mode */
+[data-theme="dark"] .feature h3 {
+    color: #ffffff !important; /* make titles white */
+}
+
+[data-theme="dark"] .feature p {
+    color: #dddddd !important; /* make body text light grey */
+}
+
+/* Optional: icons brighter in dark mode */
+[data-theme="dark"] .feature i {
+    color: #4da3ff !important; /* soft blue, or pick your theme color */
+}
+
+[data-theme="dark"] .feature {
+    background-color: #2a2a2a; /* dark card */
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* === Dark mode fixes for chat page === */
+[data-theme="dark"] .health-card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* Headings and muted text */
+[data-theme="dark"] .health-card h4 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .health-card .text-muted {
+    color: #cccccc !important;
+}
+
+/* Chat messages */
+[data-theme="dark"] .chat-message {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .chat-message strong {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .chat-message.bot {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+[data-theme="dark"] .chat-message.user {
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Chat input */
+[data-theme="dark"] .chat-input-container .form-control {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+[data-theme="dark"] .chat-input-container .form-control::placeholder {
+    color: #aaaaaa;
+}
+
+/* Suggested questions */
+[data-theme="dark"] .suggestion-btn {
+    color: #ffffff;
+    border-color: #666;
+}
+
+[data-theme="dark"] .suggestion-btn:hover {
+    background-color: #444;
+    border-color: #888;
+}
+
+/* Disclaimer alert */
+[data-theme="dark"] .alert-info {
+    background-color: #2a3b4a;
+    color: #cfe2ff;
+    border-color: #446688;
 }
 
 
