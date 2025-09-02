@@ -2,7 +2,7 @@
 
 A comprehensive full-stack web application for tracking lifestyle, getting AI-powered health insights, and managing preventive healthcare with modern UI and weather-based health alerts.
 
-![Vitagard+ Dashboard](https://vitagard-production.up.railway.app/dashboard)
+![Vitagard+](https://vitagard-production.up.railway.app/)
 
 ## 🌟 Features
 
@@ -57,5 +57,5 @@ A comprehensive full-stack web application for tracking lifestyle, getting AI-po
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/healthcare-plus.git
-cd healthcare-plus
+git clone https://https://github.com/Olaweb24/Vitagard-.git
+cd vitagard+
