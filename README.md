@@ -1,8 +1,8 @@
-# HealthCare+ - Preventive Healthcare & Awareness Platform
+# Vitagard+ - Preventive Healthcare & Awareness Platform
 
 A comprehensive full-stack web application for tracking lifestyle, getting AI-powered health insights, and managing preventive healthcare with modern UI and weather-based health alerts.
 
-![HealthCare+ Dashboard](https://via.placeholder.com/800x400?text=HealthCare%2B+Dashboard)
+![Vitagard+ Dashboard](https://vitagard-production.up.railway.app/dashboard)
 
 ## 🌟 Features
 
